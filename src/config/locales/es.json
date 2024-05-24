@@ -14,5 +14,9 @@
 		"succesfull": "OK",
 		"emptyResponse": "No se encontró información",
 		"error_server": "Ocurrió un error en el servidor"
+	},
+	"ticket": {
+		"succesfull": "OK",
+		"error_server": "Ocurrió un error en el servidor"
 	}
 }

@@ -9,18 +9,21 @@ import fileUpload from 'express-fileupload';
 
 //routes
 import Routes from "../routes/router.Router";
+import RoutesTicket from "../routes/ticket.router";
 
 class Server {
   private app: Application;
   private port: string;
   private path: any;
+  private base_url: string = "/api/honeSolutions";
 
   constructor() {
     this.app = express();
-    this.port = config.port;
+    this.port = config.port || '8080';
     this.path = {
       // exmple
-      example: "/api/honeSolutions/",
+      example: this.base_url,
+      ticket: "/ticket",
     };
 
     // Conectar a bd
@@ -63,6 +66,7 @@ class Server {
   routes() {
     // example
     this.app.use(this.path.example, Routes);
+    this.app.use(this.path.ticket, RoutesTicket);
   }
 
   listen() {

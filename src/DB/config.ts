@@ -25,6 +25,17 @@ async function connectToSqlServer() {
   }
 }
 
+const connectionSequelizeSql = new Sequelize(config.name_database_sql, config.user_server_sql,"13A132b17#", {
+  host: config.server_name_sql,
+  dialect: 'mssql',
+  define: {
+    freezeTableName: true
+  },
+  dialectOptions: {
+    options: configSQL.options,
+  },
+})
 
 
-export { connectToSqlServer };
+
+export { connectToSqlServer, connectionSequelizeSql };
