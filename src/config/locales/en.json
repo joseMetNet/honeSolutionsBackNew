@@ -10,10 +10,37 @@
 		"not_file": "No files to upload - key: file",
 		"error_routes": "Error in required fields"
 	},
-	"bolivar": {
+	"city": {
 		"succesfull": "OK",
 		"emptyResponse": "No information found",
-		"error_server": "An error occurred on the server"
+		"error_server": "An error occurred on the server",
+		"invalidIdCity": "Invalid idCity"
+	},
+	"department": {
+		"succesfull": "OK",
+		"emptyResponse": "No information found",
+		"error_server": "An error occurred on the server",
+		"invalidIdDepartment":"Invalid idDepartamento"
+	},
+	"officeProvider": {
+		"succesfull": "OK",
+		"emptyResponse": "No information found",
+		"error_server": "An error occurred on the server",
+		"invalidPage": "Invalid page",
+		"tamano": "Invalid size",
+		"invalidName": "Invalid name"
+	},
+	"plan": {
+		"succesfull": "OK",
+		"emptyResponse": "No information found",
+		"error_server": "An error occurred on the server",
+		"invalidIdPlan": "Invalid idPlan"
+	},
+	"specialty": {
+		"succesfull": "OK",
+		"emptyResponse": "No information found",
+		"error_server": "An error occurred on the server",
+		"invalidIdSpecialty": "Invalid idSpecialty"
 	},
 	"ticket": {
 		"succesfull": "OK",
