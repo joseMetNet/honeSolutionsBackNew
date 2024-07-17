@@ -10,10 +10,37 @@
 		"not_file": "No hay archivos que subir - key: archivo",
 		"error_routes": "Error en los campos requeridos"
 	},
-	"bolivar": {
+	"city": {
 		"succesfull": "OK",
 		"emptyResponse": "No se encontró información",
-		"error_server": "Ocurrió un error en el servidor"
+		"error_server": "Ocurrió un error en el servidor",
+		"invalidIdCity": "idCity inválido"
+	},
+	"department": {
+		"succesfull": "OK",
+		"emptyResponse": "No se encontró información",
+		"error_server": "Ocurrió un error en el servidor",
+		"invalidIdDepartment":"idDepartamento inválido"
+	},
+	"officeProvider": {
+		"succesfull": "OK",
+		"emptyResponse": "No se encontró información",
+		"error_server": "Ocurrió un error en el servidor",
+		"invalidPage": "página inválida",
+		"tamano": "tamaño inválido",
+		"invalidName": "nombre inválido"
+	},
+	"plan": {
+		"succesfull": "OK",
+		"emptyResponse": "No se encontró información",
+		"error_server": "Ocurrió un error en el servidor",
+		"invalidIdPlan": "idPlan inválido"
+	},
+	"specialty": {
+		"succesfull": "OK",
+		"emptyResponse": "No se encontró información",
+		"error_server": "Ocurrió un error en el servidor",
+		"invalidIdSpecialty": "idEspecialidad inválida"
 	},
 	"ticket": {
 		"succesfull": "OK",
