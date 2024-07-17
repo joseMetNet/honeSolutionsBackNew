@@ -19,6 +19,8 @@ class Ticket extends Model<ITicketModel> implements ITicketModel {
     public idStatus!: number;
     public email!: string;
     public idClientHoneSolutions!: number;
+    public userLoggedIn!: number;
+
 }
 
 Ticket.init({
@@ -85,6 +87,13 @@ Ticket.init({
         references: {
             model: config.db_table_name_client_hone,
             key: "idClientHoneSolutions"
+        }
+    },
+    userLoggedIn: {
+        type: DataTypes.INTEGER,
+        references: {
+            model: config.db_table_name_providers,
+            key: "idProvider"
         }
     },
 },

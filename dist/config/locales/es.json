@@ -1,0 +1,6 @@
+{
+	"ticket": {
+		"successful": "ticket.successful",
+		"error_server": "ticket.error_server"
+	}
+}

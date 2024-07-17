@@ -17,6 +17,7 @@
 	},
 	"ticket": {
 		"succesfull": "OK",
-		"error_server": "Ocurrió un error en el servidor"
+		"error_server": "Ocurrió un error en el servidor",
+		"successful": "ticket.successful"
 	}
 }

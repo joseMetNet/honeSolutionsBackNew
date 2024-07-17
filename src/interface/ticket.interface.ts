@@ -22,7 +22,8 @@ export interface IRequestCreate {
     idClientHone: number,
     requestDate: Date,
     maxDate: Date,
-    idRole: number
+    idRole: number,
+    userLogged: number
 }
 
 export interface ITicketModel {
@@ -41,4 +42,5 @@ export interface ITicketModel {
     idStatus?: number,
     email: string,
     idClientHoneSolutions: number,
+    userLoggedIn: number
 }

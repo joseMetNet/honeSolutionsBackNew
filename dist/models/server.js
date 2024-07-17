@@ -21,14 +21,17 @@ require("colors");
 const i18n_1 = __importDefault(require("../config/i18n"));
 const express_fileupload_1 = __importDefault(require("express-fileupload"));
 //routes
-const example_1 = __importDefault(require("../routes/example"));
+const router_Router_1 = __importDefault(require("../routes/router.Router"));
+const ticket_router_1 = __importDefault(require("../routes/ticket.router"));
 class Server {
     constructor() {
+        this.base_url = "/api/honeSolutions";
         this.app = (0, express_1.default)();
-        this.port = config_1.default.port;
+        this.port = config_1.default.port || '8080';
         this.path = {
             // exmple
-            example: "/api/example",
+            example: this.base_url,
+            ticket: "/ticket",
         };
         // Conectar a bd
         this.conectarDB();
@@ -65,7 +68,8 @@ class Server {
     }
     routes() {
         // example
-        this.app.use(this.path.example, example_1.default);
+        this.app.use(this.path.example, router_Router_1.default);
+        this.app.use(this.path.ticket, ticket_router_1.default);
     }
     listen() {
         console.clear();

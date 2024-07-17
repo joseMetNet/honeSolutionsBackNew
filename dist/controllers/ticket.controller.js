@@ -31,47 +31,30 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
+var __rest = (this && this.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.connectionSequelizeSql = exports.connectToSqlServer = void 0;
-const sequelize_1 = require("sequelize");
-require("colors");
-const config_1 = __importDefault(require("../config/config"));
-const sql = __importStar(require("mssql"));
-const configSQL = {
-    user: config_1.default.user_server_sql,
-    password: "13A132b17#",
-    database: config_1.default.name_database_sql,
-    server: config_1.default.server_name_sql,
-    options: {
-        encrypt: true,
-    },
-};
-// Instancia de conexión para SQL
-function connectToSqlServer() {
-    return __awaiter(this, void 0, void 0, function* () {
-        try {
-            const pool = yield sql.connect(configSQL); // Utiliza la configuración de SQL
-            console.log('Conectado a SQL Server');
-            return pool;
-        }
-        catch (err) {
-            console.error('Error al conectar a SQL Server:', err);
-        }
-    });
-}
-exports.connectToSqlServer = connectToSqlServer;
-const connectionSequelizeSql = new sequelize_1.Sequelize(config_1.default.name_database_sql, config_1.default.user_server_sql, "13A132b17#", {
-    host: config_1.default.server_name_sql,
-    dialect: 'mssql',
-    define: {
-        freezeTableName: true
-    },
-    dialectOptions: {
-        options: configSQL.options,
-    },
+exports.createTicket = void 0;
+const repository = __importStar(require("../repository/ticket.repository"));
+const parse_messga_i18_1 = require("../utils/parse-messga-i18");
+const createTicket = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const _a = yield repository.createTicket(req === null || req === void 0 ? void 0 : req.body), { code, message } = _a, resto = __rest(_a, ["code", "message"]);
+        res.status(code).json(Object.assign({ message: (0, parse_messga_i18_1.parseMessageI18n)(message, req) }, resto));
+    }
+    catch (err) {
+        console.error(err);
+        res.status(500).json({ message: (0, parse_messga_i18_1.parseMessageI18n)('error_server', req) });
+    }
 });
-exports.connectionSequelizeSql = connectionSequelizeSql;
-//# sourceMappingURL=config.js.map
+exports.createTicket = createTicket;
+//# sourceMappingURL=ticket.controller.js.map
