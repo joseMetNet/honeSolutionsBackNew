@@ -1,3 +1,5 @@
+import { Decimal128 } from "mongoose";
+
 export interface INegotiationTabColmedica {
     idOfficeProvider: string;
     dateBegin: string;
@@ -6,6 +8,13 @@ export interface INegotiationTabColmedica {
     idContactsProvider: string;
   }
   
+
+  export interface ILogicNegotiationTabCupsColmedica {
+    id_NegotiationTabColmedica: number;
+    idTypeIncrement: number;
+
+  }
+
 export interface IProviderColmedica {
     idProvider: number;
     razonSocial: string;
@@ -35,14 +44,63 @@ export interface IContactsProviderColmedica {
 }
 
 export interface INegotiationTabRendomColmedica {
-  idTypeService: number;
-  idTypeRendom: number;
   id_NegotiationTabColmedica: number;
+  idTypeRendom: number[];
+  idTypeService: number[][];
+}
+
+export interface ISaveNegotiationTabFareBaseColmedica {
+  idNegotiationTabColmedica: number;
+  idTypeFare: number[];
+}
+
+
+export interface INegotiationTabServiceColmedica {
+  id_NegotiationTabColmedica: number;
+  idSpeciality: number;
+  idTypeService: number;
+  idTypeFareGamaAltaU: number;
+  fareGamaAltaOperation: Decimal128;
+  idTypeFareGamaAltaD: number;
+  idTypeFareHumanAltaU: number;
+  fareHumanOperation: Decimal128;
+  idTypeFareHumanD: number;
+  idTypeFareGamaMediaU: number;
+  fareGamaMediaOperation: Decimal128;
+  idTypeFareGamaMediaD: number;
+  idTypeFareGamaMenorU: number;
+  fareGamaMenorOperation: Decimal128;
+  idTypeFareGamaMenorD: number;
+  idTypeFarePreferencialU: number;
+  farePreferenciaOperation: Decimal128;
+  idTypeFarePreferenciaD: number;
+}
+
+export interface IUpdateNegotiationTabServiceColmedica {
+  id_NegotiationTabColmedica: number;
+  idSpeciality: number;
+  idTypeService: number;
+  idTypeFareGamaAltaU: number;
+  fareGamaAltaOperation: Decimal128;
+  idTypeFareGamaAltaD: number;
+  idTypeFareHumanAltaU: number;
+  fareHumanOperation: Decimal128;
+  idTypeFareHumanD: number;
+  idTypeFareGamaMediaU: number;
+  fareGamaMediaOperation: Decimal128;
+  idTypeFareGamaMediaD: number;
+  idTypeFareGamaMenorU: number;
+  fareGamaMenorOperation: Decimal128;
+  idTypeFareGamaMenorD: number;
+  idTypeFarePreferencialU: number;
+  farePreferenciaOperation: Decimal128;
+  idTypeFarePreferenciaD: number;
 }
 
 export interface INegotiationTabTypeIncrementColmedica {
   id_NegotiationTabColmedica: number;
-  idTypeIncrement: number;
+  idTypeIncrement: number[];
+  valueIncrement: Decimal128[];
 }
 
 export interface INegotiationTabTypeIncrement {
@@ -86,8 +144,7 @@ export interface ITypeFaresColmedica {
 
 export interface INegotiationTabPlansColmedica {
   idNegotiationTabColmedica: number;
-  idPlan: number;
-  idTypeService: number;
+  idPlan: number[][];
+  idTypeService: number[];
 }
-
 

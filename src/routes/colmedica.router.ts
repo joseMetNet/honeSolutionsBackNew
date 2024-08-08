@@ -13,7 +13,19 @@ import {
     getTypeRendomColmedica,
     saveNegotiationTabRendomColmedica,
     getTypeIncrementColmedica,
-    saveNegotiationTabTypeIncrementColmedica
+    saveNegotiationTabTypeIncrementColmedica,
+    getTypeServiceColmedica,
+    getClasificationTypeServiceColmedica,
+    getServicesColmedica,
+    getReferenceRateColmedica,
+    getNegotiationTabColmedica,
+    saveNegotiationTabServiceColmedica,
+    saveNegotiationTabFareBaseColmedica,
+    updateNegotiationTabServiceColmedica,
+    saveLogicNegotiationTabCupsColmedica,
+    getInfoLogicColmedica,
+    getInfoOfficeProvider,
+    getInfoLogicTableColmedica
 } from "../controllers/colmedica.controller";
 import { query } from "express-validator";
 import { Router } from "express";
@@ -28,25 +40,28 @@ routes.post(
 )
 
 routes.post(
+    "/negotiationTabFareBaseColmedica",
+    checkSchema(CreateTicketSchema),
+    saveNegotiationTabFareBaseColmedica
+)
+
+routes.post(
+    "/negotiationTabServiceColmedica",
+    checkSchema(CreateTicketSchema),
+    saveNegotiationTabServiceColmedica
+)
+
+routes.post(
     "/negotiationTabPlansColmedica",
     checkSchema(CreateTicketSchema),
     saveNegotiationTabPlansColmedica
 )
 
-
 routes.post(
     "/negotiationTabRendomColmedica",
     checkSchema(CreateTicketSchema),
     saveNegotiationTabRendomColmedica
 )
-
-
-routes.post(
-    "/negotiationTabRendomColmedica",
-    checkSchema(CreateTicketSchema),
-    saveNegotiationTabRendomColmedica
-)
-
 
 routes.post(
     "/negotiationTabTypeIncrementColmedica",
@@ -54,6 +69,18 @@ routes.post(
     saveNegotiationTabTypeIncrementColmedica
 )
 
+routes.post(
+    "/saveLogicNegotiationTabCupsColmedica",
+    checkSchema(CreateTicketSchema),
+    saveLogicNegotiationTabCupsColmedica
+)
+
+
+routes.put(
+    "/negotiationTabServiceColmedica",
+    checkSchema(CreateTicketSchema),
+    updateNegotiationTabServiceColmedica
+)
 
 routes.get(
     "/providersColmedicas",
@@ -62,6 +89,36 @@ routes.get(
         validateEnpoint
     ],
     getProvidersColmedica
+)
+
+routes.get(
+    "/infoOfficeProvider",
+    [
+        query("idProvider", "global.int_type_field").optional().isInt(),
+        validateEnpoint
+    ],
+    getInfoOfficeProvider
+)
+
+
+routes.get(
+    "/infoLogicColmedica",
+    [
+        query("id_NegotiationTabColmedica", "global.int_type_field").optional().isInt(),
+        validateEnpoint
+    ],
+    getInfoLogicColmedica
+)
+
+
+
+routes.get(
+    "/infoLogicTableColmedica",
+    [
+        query("id_NegotiationTabColmedica", "global.int_type_field").optional().isInt(),
+        validateEnpoint
+    ],
+    getInfoLogicTableColmedica
 )
 
 routes.get(
@@ -97,6 +154,16 @@ routes.get(
 )
 
 routes.get(
+    "/servicesColmedica",
+    [
+        query("idClasificationTypeService", "global.int_type_field").optional().isInt(),
+        validateEnpoint
+    ],
+    getServicesColmedica
+)
+
+
+routes.get(
     "/plansColmedica",
     getPlansColmedica
 )
@@ -112,9 +179,29 @@ routes.get(
 )
 
 routes.get(
+    "/typeServiceColmedica",
+    getTypeServiceColmedica
+)
+
+routes.get(
     "/typeIncrementColmedica",
     getTypeIncrementColmedica
 )
 
+routes.get(
+    "/referenceRateColmedica",
+    getReferenceRateColmedica
+)
+
+routes.get(
+    "/clasificationTypeServiceColmedica",
+    getClasificationTypeServiceColmedica
+)
+
+
+routes.get(
+    "/negotiationTabColmedica",
+    getNegotiationTabColmedica
+)
 
 export default routes;
